@@ -17,7 +17,6 @@ services:
       - k1meira-network
 
   springboot-dockerization:
-    build: .
     image: k1meira/springboot-dockerization
     restart: always
     environment:
@@ -31,6 +30,20 @@ services:
         condition: service_healthy
     networks:
       - k1meira-network
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    restart: always
+    ports:
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    networks:
+      - k1meira-network
+
+volumes:
+  portainer_data:
 
 networks:
   k1meira-network:

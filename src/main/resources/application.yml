@@ -12,9 +12,9 @@ security:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://db:3306/docker_from_zero_to_mastery_java?useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+    url: ${JDBC_URL}
     username: root
-    password: docker
+    password: K1Meira123
   jpa:
     open-in-view: false
     hibernate:
